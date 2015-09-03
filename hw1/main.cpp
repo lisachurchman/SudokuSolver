@@ -79,6 +79,7 @@ for (int i=0; i < 9; i++){
     return options;
 };
 
+int nodes;
 
 bool DFS_Solve (int puzzle [9][9]) {
     Cell cell = FirstZero(puzzle);
@@ -92,6 +93,7 @@ bool DFS_Solve (int puzzle [9][9]) {
         }
 
         puzzle[cell.row][cell.column] = 0;
+        nodes +=1;
         return false;
     }
 }
@@ -126,7 +128,8 @@ int main(int argc, const char * argv[]) {
     bool isSolved;
     isSolved= DFS_Solve(matrix);
     
-    cout << "Solution" <<endl<< endl << endl;
+    cout << "Solution" <<endl;
+    cout << "Nodes visited: "<< nodes << endl << endl;
     
     for (int i=0; i<9; i++){
         for (int j=0; j<9; j++){
